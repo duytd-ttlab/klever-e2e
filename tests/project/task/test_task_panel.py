@@ -9,7 +9,7 @@ TASK_ID = None
 def create_task(create_project: tuple[Page, BrowserContext, Browser]):
     global TASK_ID
 
-    page, _ = create_project
+    page, _, _ = create_project
     page.locator('*[data-role="project-stage-kanban-Todo-section-add-task-form"]').first.click()
     page.wait_for_timeout(500)
     page.locator('*[data-role="project-stage-kanban-Todo-add-task-form-task-name"]').first.fill(
@@ -28,7 +28,7 @@ def create_task(create_project: tuple[Page, BrowserContext, Browser]):
 def test_read_task_in_panel(create_task: tuple[Page, BrowserContext, Browser]):
     global TASK_ID
 
-    page, _ = create_task
+    page, _, _ = create_task
     page.locator('.dndrop-draggable-wrapper').get_by_text(TASK_ID).first.click()
 
     expect(page.locator('.dndrop-draggable-wrapper').get_by_text(TASK_ID).first).to_be_visible()
@@ -37,7 +37,7 @@ def test_read_task_in_panel(create_task: tuple[Page, BrowserContext, Browser]):
 def test_delete_task_in_stage(create_task: tuple[Page, BrowserContext, Browser]):
     global TASK_ID
 
-    page, _ = create_task
+    page, _, _ = create_task
     page.locator('.taskpanel-index').locator(
         'span[data-bs-original-title="More Actions"]'
     ).first.click()

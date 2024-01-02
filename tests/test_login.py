@@ -8,7 +8,7 @@ from config.staging import staging_config
 
 @pytest.mark.skip()
 def test_signup(logged_in_context: tuple[Page, BrowserContext, Browser]):
-    page, _ = logged_in_context
+    page, _, _ = logged_in_context
     num = str(random.randint(1000, 9999))
     page.goto(staging_config.BASE_URL.replace('://', '://signup.') + 'auth/register')
     page.get_by_label('Company name').fill(f'Test Company {num}')
@@ -21,7 +21,7 @@ def test_signup(logged_in_context: tuple[Page, BrowserContext, Browser]):
 
 
 # def test_(logged_in_context: tuple[Page, BrowserContext, Browser]):
-#     page, _ = logged_in_context
+#     page, _, _ = logged_in_context
 #     page.goto('https://staging.kleversuite.net/settings/role/list')
 #     page.wait_for_load_state('domcontentloaded')
 #     page.get_by_role('button', name='Create').first.click()

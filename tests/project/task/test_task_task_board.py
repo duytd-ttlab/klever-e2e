@@ -12,7 +12,7 @@ TASK_ID = None
 def test_create_task_in_task_board(create_project: tuple[Page, BrowserContext, Browser]):
     global TASK_ID
 
-    page, _ = create_project
+    page, _, _ = create_project
     page.locator('*[data-role="project-stage-kanban-Todo-section-add-task-form"]').first.click()
     page.wait_for_timeout(500)
     page.locator('*[data-role="project-stage-kanban-Todo-add-task-form-task-name"]').first.fill(
@@ -33,13 +33,13 @@ def test_create_task_in_task_board(create_project: tuple[Page, BrowserContext, B
 def test_read_task_in_task_board(create_project: tuple[Page, BrowserContext, Browser]):
     global TASK_ID
 
-    page, _ = create_project
+    page, _, _ = create_project
 
     expect(page.locator('.dndrop-draggable-wrapper').get_by_text(TASK_ID).first).to_be_visible()
 
 
 def test_copy_link_task_in_task_board(create_project: tuple[Page, BrowserContext, Browser]):
-    page, _ = create_project
+    page, _, _ = create_project
     page.locator('.overflow-y-auto').filter(has_text=TASK_ID).locator(
         'span[data-bs-toggle="dropdown"]'
     ).first.click()
@@ -65,7 +65,7 @@ def test_copy_link_task_in_task_board(create_project: tuple[Page, BrowserContext
 
 def test_edit_task_in_task_board(create_project: tuple[Page, BrowserContext, Browser]):
     global TASK_ID
-    page, _ = create_project
+    page, _, _ = create_project
     page.locator('.overflow-y-auto').filter(has_text=TASK_ID).locator(
         'span[data-bs-toggle="dropdown"]'
     ).first.click()
@@ -82,7 +82,7 @@ def test_edit_task_in_task_board(create_project: tuple[Page, BrowserContext, Bro
 def test_delete_task_in_task_board(create_project: tuple[Page, BrowserContext, Browser]):
     global TASK_ID
 
-    page, _ = create_project
+    page, _, _ = create_project
     page.locator('.overflow-y-auto').filter(has_text=TASK_ID).locator(
         'span[data-bs-toggle="dropdown"]'
     ).first.click()

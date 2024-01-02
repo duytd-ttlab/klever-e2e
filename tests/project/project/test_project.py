@@ -10,7 +10,7 @@ PROJECT_NAME = 'Test Project'
 
 
 def test_search_project(logged_in_context: tuple[Page, BrowserContext, Browser]):
-    page, _ = logged_in_context
+    page, _, _ = logged_in_context
     page.goto(urljoin(staging_config.BASE_URL, UrlPath.PROJECT.value))
 
     expect(
@@ -26,7 +26,7 @@ def test_search_project(logged_in_context: tuple[Page, BrowserContext, Browser])
 def test_create_project(logged_in_context: tuple[Page, BrowserContext, Browser]):
     global PROJECT_NAME
 
-    page, _ = logged_in_context
+    page, _, _ = logged_in_context
 
     page.locator('button[data-role="project-add-trigger"]:visible').first.click()
     page.get_by_label('Name').fill(PROJECT_NAME)
@@ -41,7 +41,7 @@ def test_create_project(logged_in_context: tuple[Page, BrowserContext, Browser])
 def test_update_project(logged_in_context: tuple[Page, BrowserContext, Browser]):
     global PROJECT_NAME
 
-    page, _ = logged_in_context
+    page, _, _ = logged_in_context
     new_project_name = 'New Name'
 
     page.locator('*[data-role="Settings"]').click()
@@ -63,7 +63,7 @@ def test_update_project(logged_in_context: tuple[Page, BrowserContext, Browser])
 def test_delete_project(logged_in_context: tuple[Page, BrowserContext, Browser]):
     global PROJECT_NAME
 
-    page, _ = logged_in_context
+    page, _, _ = logged_in_context
 
     page.locator('*[data-role="project-archive"]').first.click()
     page.locator('button[data-role="modal-button-warning-archive"]').first.click()
