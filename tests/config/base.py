@@ -19,5 +19,6 @@ class Config:
 class UrlPath(Enum):
     PROJECT = 'project/'
     PROJECT_TASK_BOARD = '/project/project/{}/board'
+    PROJECT_SETTINGS = '/project/project/{project-}/settings/general'
     TASK = 'task/'
     SETTINGS = 'settings/'
