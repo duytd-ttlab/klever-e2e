@@ -41,6 +41,6 @@ def logged_in_context() -> Generator[tuple[Page, BrowserContext, Browser], None,
 
     login(page)
 
-    yield page, browser
+    yield page, context, browser
 
     p.stop()
