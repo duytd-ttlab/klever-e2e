@@ -8,7 +8,7 @@ from shared.config.staging import staging_config as config, Role
 
 
 @pytest.fixture(scope='session')
-def context() -> Generator[tuple[Page, BrowserContext, Browser], None, None]:
+def unlogged_in_context() -> Generator[tuple[Page, BrowserContext, Browser], None, None]:
     p = sync_playwright().start()
 
     browser = p.chromium.launch(headless=False)
