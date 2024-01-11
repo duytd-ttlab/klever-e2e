@@ -1,7 +1,7 @@
 import pytest
 from playwright.sync_api import Page, Browser, BrowserContext, expect
 
-from config.staging import staging_config as config
+from shared.config.staging import staging_config as config
 
 
 TASK_ID = None

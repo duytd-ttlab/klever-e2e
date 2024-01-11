@@ -4,8 +4,8 @@ from urllib.parse import urljoin
 from playwright.sync_api import Page, Browser, BrowserContext
 import pytest
 
-from config.base import UrlPath
-from config.staging import staging_config as config
+from shared.config.base import UrlPath
+from shared.config.staging import staging_config as config
 
 PROJECT_NAME = 'Test Project'
 PROJECT_ID = None

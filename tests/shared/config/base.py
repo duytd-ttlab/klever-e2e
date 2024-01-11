@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from enum import Enum
 
-from constants.role import Role
+from shared.constants.role import Role
 
 
 @dataclass

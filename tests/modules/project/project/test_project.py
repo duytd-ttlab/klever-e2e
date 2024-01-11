@@ -2,8 +2,8 @@ from urllib.parse import urljoin
 
 from playwright.sync_api import Page, Browser, BrowserContext, expect
 
-from config.base import UrlPath
-from config.staging import staging_config
+from shared.config.base import UrlPath
+from shared.config.staging import staging_config
 
 
 PROJECT_NAME = 'Test Project'

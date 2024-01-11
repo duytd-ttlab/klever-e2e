@@ -3,7 +3,7 @@ import random
 from playwright.sync_api import Page, Browser, BrowserContext
 import pytest
 
-from config.staging import staging_config
+from shared.config.staging import staging_config
 
 
 @pytest.mark.skip()

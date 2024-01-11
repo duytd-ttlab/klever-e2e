@@ -4,7 +4,7 @@ from urllib.parse import urljoin
 
 from playwright.sync_api import sync_playwright, Page, Browser, BrowserContext
 
-from config.staging import staging_config as config, Role
+from shared.config.staging import staging_config as config, Role
 
 
 @pytest.fixture(scope='session')
